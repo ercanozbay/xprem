@@ -1,0 +1,41 @@
+info:
+  component: Edge Server
+
+endpoints:
+  restart:
+    enabled: true
+
+
+zuul:
+  prefix: /api
+  routes:
+    account:
+      path: /accounts/**
+      serviceId: payment-service
+    customer:
+      path: /customers/**
+      serviceId: customer-service
+
+#ribbon:
+#  eureka:
+#    enabled: true
+
+eureka:
+  client:
+    enabled: true
+    healthcheck:
+      enabled: true
+    fetch-registry: true
+    register-with-eureka: true
+    instance-info-replication-interval-seconds: 10
+    registry-fetch-interval-seconds: 10
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+
+server:
+  port: 8765
+
+logging:
+  level:
+    ROOT: INFO
+    org.springframework.web: DEBUG
