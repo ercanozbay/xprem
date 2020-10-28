@@ -37,12 +37,10 @@ services:
 
   customer-service:
     image: xprem/customer-service
-    container_name: customer-service
     build:
       context: ./customer-service
       dockerfile: Dockerfile
-    ports:
-      - "3333:3333"
+
     environment:
       EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://discovery:8761/eureka
       SPRING_PROFILES_ACTIVE: prod
