@@ -10,11 +10,12 @@ zuul:
   prefix: /api
   routes:
     account:
-      path: /accounts/**
+      path: /payments/**
       serviceId: payment-service
     customer:
       path: /customers/**
       serviceId: customer-service
+  sensitive-headers:
 
 #ribbon:
 #  eureka:
