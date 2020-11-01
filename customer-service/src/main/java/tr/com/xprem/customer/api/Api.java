@@ -64,7 +64,7 @@ public class Api {
         kartBilgisi.setCustomerId(UtilKullanici.getCustomer().getId());
 
         boolean isPremium= UtilKullanici.isPremium();
-        if(false&&isPremium){
+        if(isPremium){
 
             return new Message(Message.Level.UYARI,"Zaten Premium üyesiniz!..");
         }
